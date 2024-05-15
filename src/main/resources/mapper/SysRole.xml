@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.SysRoleMapper">
+    <sql id="role_sql">
+        `id`,
+        `role`,
+        `role_zh`,
+        `is_enabled` `enabled`,
+        `crt_username`,
+        `crt_time`,
+        `upd_username`,
+        `upd_time`
+    </sql>
+
+    <insert id="addRole">
+        insert into `sys_role`(`role`, `role_zh`, `is_enabled`, `crt_username`, `crt_time`)
+        VALUES (#{role}, #{roleZH}, #{enabled}, #{username}, now())
+    </insert>
+
+    <update id="updRole">
+        update `sys_role`
+        set `role`         = #{role},
+            `role_zh`      = #{roleZH},
+            `upd_username` = #{username},
+            `upd_time`     = now()
+        where id = #{roleId}
+    </update>
+    <update id="enableRole">
+        update sys_role
+        set is_enabled   = #{enabled},
+            upd_username = #{username},
+            upd_time     = now()
+        where id = #{roleId}
+    </update>
+
+    <select id="getRoleList" resultType="com.example.project.entity.SysRoleEntity">
+        select
+        <include refid="role_sql"/>
+        from `sys_role`
+        order by id desc
+    </select>
+
+    <select id="getRoleByRoleId" resultType="com.example.project.entity.SysRoleEntity">
+        select
+        <include refid="role_sql"/>
+        from `sys_role`
+        where `id` = #{id}
+          and `is_enabled` = true
+    </select>
+
+    <select id="countByRoleIds" resultType="java.lang.Integer">
+        select count(*)
+        from `sys_role`
+                where `id` in
+        <foreach collection="roleIds" open="(" close=")" item="item" separator=",">
+            #{item}
+        </foreach>
+        and `is_enabled` = true
+    </select>
+
+    <select id="getByRoleOrRoleZH" resultType="com.example.project.entity.SysRoleEntity">
+        select
+        <include refid="role_sql"/>
+        from sys_role
+        where role = #{role}
+           or role_zh = #{roleZH}
+    </select>
+
+    <select id="getByRoleZH" resultType="com.example.project.entity.SysRoleEntity">
+        select
+        <include refid="role_sql"/>
+        from sys_role
+        where role_zh = #{zoleZH}
+    </select>
+
+    <select id="getByRole" resultType="com.example.project.entity.SysRoleEntity">
+        select
+        <include refid="role_sql"/>
+        from sys_role
+        where role = #{role}
+    </select>
+
+    <select id="getRoleListByUsername" resultType="com.example.project.entity.SysRoleEntity">
+        select sr.`id`,
+               sr.`role`,
+               sr.`role_zh`,
+               sr.`is_enabled` `enabled`,
+               sr.`crt_username`,
+               sr.`crt_time`,
+               sr.`upd_username`,
+               sr.`upd_time`
+        from sys_user su
+                     join sys_user_role sur on su.id = sur.user_id
+                     join sys_role sr on sur.role_id = sr.id
+        where su.username = #{username}
+    </select>
+</mapper>

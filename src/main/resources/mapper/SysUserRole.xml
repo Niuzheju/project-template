@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.SysUserRoleMapper">
+    <insert id="batchCreateSysUserRole">
+        insert into `sys_user_role`(`user_id`, `role_id`, `crt_username`, `crt_time`)
+                VALUES
+        <foreach collection="roleIds" item="item" separator=",">
+            (#{userId}, #{item}, #{username}, now())
+        </foreach>
+    </insert>
+
+    <insert id="batchCreateSysUserRoleByEntitys">
+        insert into `sys_user_role`(`user_id`, `role_id`, `crt_username`)
+                VALUES
+        <foreach collection="roleEntities" item="item" separator=",">
+            (#{item.userId}, #{item.roleId}, #{item.crtUsername})
+        </foreach>
+    </insert>
+
+    <select id="getRoleListByUserId" resultType="com.example.project.entity.SysRoleEntity">
+        select `sr`.`id`, `sr`.`role`, `sr`.`role_zh`
+        from `sys_user_role` `sur`
+                     join `sys_role` `sr` on `sur`.`role_id` = `sr`.`id`
+        where `sur`.`user_id` = #{userId}
+          and `sr`.is_enabled = true
+    </select>
+
+    <select id="getUserIdListByRoleId" resultType="java.lang.Long">
+        select `user_id`
+        from `sys_user_role`
+        where `role_id` = #{roleId}
+    </select>
+
+    <delete id="delRolesByUserIdAndRoles">
+        delete
+        from `sys_user_role`
+                where user_id = #{userId}
+                  and role_id in
+        <foreach collection="roleIds" open="(" close=")" item="roleId" separator=",">
+            #{roleId}
+        </foreach>
+    </delete>
+
+    <delete id="delRolesByUserId">
+        delete
+        from `sys_user_role`
+        where user_id = #{userId}
+    </delete>
+
+    <select id="getRoleIdListByUserId" resultType="java.lang.Long">
+        select role_id
+        from sys_user_role
+        where user_id = #{userId}
+    </select>
+</mapper>

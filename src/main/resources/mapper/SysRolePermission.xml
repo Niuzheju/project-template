@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.SysRolePermissionMapper">
+
+    <insert id="addRolePermissions">
+        insert into `sys_role_permission`(role_id, permission_key, crt_username, crt_time)
+        VALUES
+        <foreach collection="entityList" item="item" separator=",">
+            (
+            #{item.roleId}, #{item.permissionKey}, #{item.crtUsername}, now()
+            )
+        </foreach>
+    </insert>
+
+    <delete id="delRolePermissionsByRoleIdAndKeys">
+        delete from sys_role_permission
+        where role_id = #{roleId}
+        and permission_key in
+        <foreach collection="keys" open="(" close=")" item="item" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getPermissionListByRoleIds" resultType="com.example.project.bean.Permission">
+        select distinct sp.`key`, sp.`method`, `sp`.`api`
+        from `sys_role_permission` srp
+        join `sys_permission` sp on srp.`permission_key` = sp.`key`
+        where srp.`role_id` in
+        <foreach collection="roleIds" open="(" close=")" item="roleId" separator=",">
+            #{roleId}
+        </foreach>
+    </select>
+
+    <select id="getKeyListByRoleIdAndKeys" resultType="java.lang.String">
+        select permission_key
+        from `sys_role_permission`
+        where `role_id` = #{roleId}
+        and `permission_key` in
+        <foreach collection="keys" open="(" close=")" item="item" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="getKeyListByRoleId" resultType="java.lang.String">
+        select permission_key
+        from sys_role_permission
+        where role_id = #{roleId}
+    </select>
+
+</mapper>

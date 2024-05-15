@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.SysUserMapper">
+    <sql id="base_column">
+        <!--@sql select -->`id`,
+        `username`,
+        `role`,
+        `nickname`,
+        `mobile`,
+        `password`,
+        `is_enable` enable,
+        `modify_time`,
+        `create_time`<!--@sql from `sys_user` -->
+    </sql>
+
+    <select id="getById" resultType="com.example.project.entity.SysUserEntity">
+        select
+        <include refid="base_column"/>
+        from `sys_user`
+        where `id` = #{id}
+    </select>
+
+    <select id="getByUsername" resultType="com.example.project.entity.SysUserEntity">
+        select
+        <include refid="base_column"/>
+        from `sys_user`
+        where `is_enable` = true
+          and `username` = #{username}
+    </select>
+
+    <update id="updatePassword">
+        update sys_user
+        set password          = #{password},
+            `modify_username` = #{updUsername},
+            `modify_time`     = now()
+        where `id` = #{userId}
+    </update>
+
+    <select id="getByIdAndEnabled" resultType="com.example.project.entity.SysUserEntity">
+        select
+        <include refid="base_column"/>
+        from `sys_user`
+        where `id` = #{id}
+          and `is_enable` = true
+    </select>
+
+    <insert id="createSysUser" useGeneratedKeys="true" keyProperty="id">
+        insert into `sys_user`(username, nickname, mobile, role, password, is_enable, create_time, create_username)
+        VALUES (#{username}, #{nickname}, #{mobile}, ${@com.hecai.dawenqi.enumeration.UserRoleEnum@ADMIN.getCode()},
+                #{password}, #{enable}, now(), #{createUsername})
+    </insert>
+
+    <resultMap id="sysUser" type="com.example.project.response.SysUserResponse" autoMapping="true">
+        <id column="id" property="id"/>
+        <collection property="roleList" javaType="list" ofType="com.example.project.bean.RoleBean">
+            <id column="role_id" property="id"/>
+            <id column="role_zh" property="roleZH"/>
+        </collection>
+    </resultMap>
+
+    <select id="getSysUserList" resultMap="sysUser">
+        select u.`id`,
+               u.`nickname`,
+               u.`username`,
+               u.`password`,
+               u.`mobile`,
+               u.`is_enable`       `enabled`,
+               u.`create_username` `crt_username`,
+               u.`create_time`     `crt_time`,
+               u.`modify_username` `upd_username`,
+               u.`modify_time`     `upd_time`,
+               r.`id` as           `role_id`,
+               r.`role_zh`
+        from `sys_user` u
+                     left join `sys_user_role` ur on u.`id` = ur.`user_id`
+                     left join `sys_role` r on ur.`role_id` = r.`id`
+        <where>
+            <if test="mobile != null and mobile != ''">
+                and u.`mobile` like concat('%', #{mobile}, '%')
+            </if>
+            <if test="username != null and username != ''">
+                and u.`username` like concat('%', #{username}, '%')
+            </if>
+        </where>
+        order by u.`id` desc
+    </select>
+
+    <update id="updateSysUser">
+        update `sys_user`
+        set `nickname`        = #{nickname},
+            `mobile`          = #{mobile},
+            `modify_username` = #{updUsername},
+            `modify_time`     = now()
+        where `id` = #{userId}
+    </update>
+
+    <update id="enableSysUser">
+        update `sys_user`
+        set `is_enable`       = #{enabled},
+            `modify_username` = #{updUsername},
+            `modify_time`     = now()
+        where `id` = #{userId}
+    </update>
+</mapper>

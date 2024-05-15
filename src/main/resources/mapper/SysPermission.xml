@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.SysPermissionMapper">
+    <sql id="permission_sql">
+        `id`,
+        `key`,
+        `method`,
+        `api`,
+        `crt_username`,
+        `crt_time`
+    </sql>
+
+    <insert id="addPermissions" useGeneratedKeys="true" keyProperty="id">
+        insert into `sys_permission`(`key`, `method`, `api`, `crt_username`)
+        VALUES
+        <foreach collection="permissions" item="item" separator=",">
+            (#{item.key}, #{item.method}, #{item.api}, #{item.crtUsername})
+        </foreach>
+    </insert>
+
+    <delete id="delPermissions">
+        delete from sys_permission
+        where `key` in
+        <foreach collection="keys" open="(" close=")" item="item" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="countPermissionByPermissionKeys" resultType="java.lang.Integer">
+        select
+        count(distinct `key`)
+        from `sys_permission`
+        where `key` in
+        <foreach collection="keys" open="(" close=")" item="item" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="getPermissionList" resultType="com.example.project.entity.SysPermissionEntity">
+        select
+        <include refid="permission_sql"/>
+        from `sys_permission`
+        order by `id` desc
+    </select>
+
+    <select id="countByPermissions" resultType="int">
+        select count(*)
+        from sys_permission
+        where concat(`key`, `method`, `api`) in
+        <foreach collection="permissions" open="(" close=")" item="item" separator=",">
+            concat(#{item.key}, #{item.method}, #{item.api})
+        </foreach>
+    </select>
+</mapper>

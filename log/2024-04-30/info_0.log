@@ -1,0 +1,83 @@
+2024-04-30 13:38:59.866 [main] [INFO ] c.e.p.ProjectTemplateApplication:50 Starting ProjectTemplateApplication using Java 17.0.7 with PID 12604 (E:\study\java\project-template\project-template\target\classes started by Zheju Niu in E:\study\java\project-template\project-template)
+2024-04-30 13:38:59.873 [main] [INFO ] c.e.p.ProjectTemplateApplication:660 The following 1 profile is active: "dev"
+2024-04-30 13:39:00.381 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:295 Multiple Spring Data modules found, entering strict repository configuration mode
+2024-04-30 13:39:00.384 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:143 Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-04-30 13:39:00.409 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:211 Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2024-04-30 13:39:00.844 [main] [INFO ] o.s.b.w.e.tomcat.TomcatWebServer:109 Tomcat initialized with port 8080 (http)
+2024-04-30 13:39:00.852 [main] [INFO ] o.a.catalina.core.StandardService:173 Starting service [Tomcat]
+2024-04-30 13:39:00.852 [main] [INFO ] o.a.catalina.core.StandardEngine:173 Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-04-30 13:39:00.903 [main] [INFO ] o.a.c.c.C.[Tomcat].[localhost].[/]:173 Initializing Spring embedded WebApplicationContext
+2024-04-30 13:39:00.903 [main] [INFO ] o.s.b.w.s.c.ServletWebServerApplicationContext:296 Root WebApplicationContext: initialization completed in 993 ms
+2024-04-30 13:39:01.111 [main] [INFO ] com.zaxxer.hikari.HikariDataSource:110 HikariCP - Starting...
+2024-04-30 13:39:05.436 [main] [INFO ] com.zaxxer.hikari.pool.HikariPool:565 HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@77c23d90
+2024-04-30 13:39:05.438 [main] [INFO ] com.zaxxer.hikari.HikariDataSource:123 HikariCP - Start completed.
+2024-04-30 13:39:05.497 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 Flyway Community Edition 9.22.3 by Redgate
+2024-04-30 13:39:05.497 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 See release notes here: https://rd.gt/416ObMi
+2024-04-30 13:39:05.497 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 
+2024-04-30 13:39:05.532 [main] [INFO ] org.flywaydb.core.FlywayExecutor:37 Database: jdbc:mysql://192.168.56.101:3306/test (MySQL 8.0)
+2024-04-30 13:39:05.616 [main] [INFO ] o.f.core.internal.command.DbValidate:37 Successfully validated 2 migrations (execution time 00:00.059s)
+2024-04-30 13:39:05.637 [main] [INFO ] o.f.core.internal.command.DbMigrate:37 Current version of schema `test`: 1.0.1
+2024-04-30 13:39:05.640 [main] [INFO ] o.f.core.internal.command.DbMigrate:37 Schema `test` is up to date. No migration necessary.
+2024-04-30 13:39:06.182 [main] [INFO ] o.s.b.w.e.tomcat.TomcatWebServer:241 Tomcat started on port 8080 (http) with context path ''
+2024-04-30 13:39:06.187 [main] [INFO ] c.e.p.ProjectTemplateApplication:56 Started ProjectTemplateApplication in 6.717 seconds (process running for 7.211)
+2024-04-30 13:39:17.953 [http-nio-8080-exec-1] [INFO ] o.a.c.c.C.[Tomcat].[localhost].[/]:173 Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 13:39:17.953 [http-nio-8080-exec-1] [INFO ] o.s.web.servlet.DispatcherServlet:532 Initializing Servlet 'dispatcherServlet'
+2024-04-30 13:39:17.954 [http-nio-8080-exec-1] [INFO ] o.s.web.servlet.DispatcherServlet:554 Completed initialization in 1 ms
+2024-04-30 13:39:17.983 [http-nio-8080-exec-1] [WARN ] c.e.project.service.AreaService:27 xxx
+2024-04-30 13:39:17.984 [http-nio-8080-exec-1] [ERROR] c.e.project.service.AreaService:28 xxxxx
+2024-04-30 14:34:24.598 [SpringApplicationShutdownHook] [INFO ] com.zaxxer.hikari.HikariDataSource:350 HikariCP - Shutdown initiated...
+2024-04-30 14:34:24.611 [SpringApplicationShutdownHook] [INFO ] com.zaxxer.hikari.HikariDataSource:352 HikariCP - Shutdown completed.
+2024-04-30 14:34:29.267 [main] [INFO ] c.e.p.ProjectTemplateApplication:50 Starting ProjectTemplateApplication using Java 17.0.7 with PID 18828 (E:\study\java\project-template\project-template\target\classes started by Zheju Niu in E:\study\java\project-template\project-template)
+2024-04-30 14:34:29.269 [main] [INFO ] c.e.p.ProjectTemplateApplication:660 The following 1 profile is active: "dev"
+2024-04-30 14:34:29.683 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:295 Multiple Spring Data modules found, entering strict repository configuration mode
+2024-04-30 14:34:29.684 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:143 Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-04-30 14:34:29.705 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:211 Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2024-04-30 14:34:30.067 [main] [INFO ] o.s.b.w.e.tomcat.TomcatWebServer:109 Tomcat initialized with port 8080 (http)
+2024-04-30 14:34:30.074 [main] [INFO ] o.a.catalina.core.StandardService:173 Starting service [Tomcat]
+2024-04-30 14:34:30.075 [main] [INFO ] o.a.catalina.core.StandardEngine:173 Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-04-30 14:34:30.112 [main] [INFO ] o.a.c.c.C.[Tomcat].[localhost].[/]:173 Initializing Spring embedded WebApplicationContext
+2024-04-30 14:34:30.113 [main] [INFO ] o.s.b.w.s.c.ServletWebServerApplicationContext:296 Root WebApplicationContext: initialization completed in 811 ms
+2024-04-30 14:34:30.273 [main] [INFO ] com.zaxxer.hikari.HikariDataSource:110 HikariCP - Starting...
+2024-04-30 14:34:30.483 [main] [INFO ] com.zaxxer.hikari.pool.HikariPool:565 HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@16ea0f22
+2024-04-30 14:34:30.485 [main] [INFO ] com.zaxxer.hikari.HikariDataSource:123 HikariCP - Start completed.
+2024-04-30 14:34:30.531 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 Flyway Community Edition 9.22.3 by Redgate
+2024-04-30 14:34:30.532 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 See release notes here: https://rd.gt/416ObMi
+2024-04-30 14:34:30.533 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 
+2024-04-30 14:34:30.547 [main] [INFO ] org.flywaydb.core.FlywayExecutor:37 Database: jdbc:mysql://192.168.56.101:3306/test (MySQL 8.0)
+2024-04-30 14:34:30.592 [main] [INFO ] o.f.core.internal.command.DbValidate:37 Successfully validated 2 migrations (execution time 00:00.026s)
+2024-04-30 14:34:30.611 [main] [INFO ] o.f.core.internal.command.DbMigrate:37 Current version of schema `test`: 1.0.1
+2024-04-30 14:34:30.614 [main] [INFO ] o.f.core.internal.command.DbMigrate:37 Schema `test` is up to date. No migration necessary.
+2024-04-30 14:34:31.049 [main] [INFO ] o.s.b.w.e.tomcat.TomcatWebServer:241 Tomcat started on port 8080 (http) with context path ''
+2024-04-30 14:34:31.058 [main] [INFO ] c.e.p.ProjectTemplateApplication:56 Started ProjectTemplateApplication in 2.119 seconds (process running for 2.506)
+2024-04-30 14:34:45.427 [http-nio-8080-exec-1] [INFO ] o.a.c.c.C.[Tomcat].[localhost].[/]:173 Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 14:34:45.427 [http-nio-8080-exec-1] [INFO ] o.s.web.servlet.DispatcherServlet:532 Initializing Servlet 'dispatcherServlet'
+2024-04-30 14:34:45.428 [http-nio-8080-exec-1] [INFO ] o.s.web.servlet.DispatcherServlet:554 Completed initialization in 0 ms
+2024-04-30 14:35:05.591 [SpringApplicationShutdownHook] [INFO ] com.zaxxer.hikari.HikariDataSource:350 HikariCP - Shutdown initiated...
+2024-04-30 14:35:05.597 [SpringApplicationShutdownHook] [INFO ] com.zaxxer.hikari.HikariDataSource:352 HikariCP - Shutdown completed.
+2024-04-30 14:35:08.056 [main] [INFO ] c.e.p.ProjectTemplateApplication:50 Starting ProjectTemplateApplication using Java 17.0.7 with PID 17624 (E:\study\java\project-template\project-template\target\classes started by Zheju Niu in E:\study\java\project-template\project-template)
+2024-04-30 14:35:08.058 [main] [INFO ] c.e.p.ProjectTemplateApplication:660 The following 1 profile is active: "dev"
+2024-04-30 14:35:08.503 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:295 Multiple Spring Data modules found, entering strict repository configuration mode
+2024-04-30 14:35:08.505 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:143 Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-04-30 14:35:08.523 [main] [INFO ] o.s.d.r.c.RepositoryConfigurationDelegate:211 Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2024-04-30 14:35:08.913 [main] [INFO ] o.s.b.w.e.tomcat.TomcatWebServer:109 Tomcat initialized with port 8080 (http)
+2024-04-30 14:35:08.922 [main] [INFO ] o.a.catalina.core.StandardService:173 Starting service [Tomcat]
+2024-04-30 14:35:08.922 [main] [INFO ] o.a.catalina.core.StandardEngine:173 Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-04-30 14:35:08.963 [main] [INFO ] o.a.c.c.C.[Tomcat].[localhost].[/]:173 Initializing Spring embedded WebApplicationContext
+2024-04-30 14:35:08.963 [main] [INFO ] o.s.b.w.s.c.ServletWebServerApplicationContext:296 Root WebApplicationContext: initialization completed in 868 ms
+2024-04-30 14:35:09.155 [main] [INFO ] com.zaxxer.hikari.HikariDataSource:110 HikariCP - Starting...
+2024-04-30 14:35:09.381 [main] [INFO ] com.zaxxer.hikari.pool.HikariPool:565 HikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@699e0bf0
+2024-04-30 14:35:09.382 [main] [INFO ] com.zaxxer.hikari.HikariDataSource:123 HikariCP - Start completed.
+2024-04-30 14:35:09.433 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 Flyway Community Edition 9.22.3 by Redgate
+2024-04-30 14:35:09.433 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 See release notes here: https://rd.gt/416ObMi
+2024-04-30 14:35:09.434 [main] [INFO ] o.f.c.i.license.VersionPrinter:37 
+2024-04-30 14:35:09.448 [main] [INFO ] org.flywaydb.core.FlywayExecutor:37 Database: jdbc:mysql://192.168.56.101:3306/test (MySQL 8.0)
+2024-04-30 14:35:09.481 [main] [INFO ] o.f.core.internal.command.DbValidate:37 Successfully validated 2 migrations (execution time 00:00.017s)
+2024-04-30 14:35:09.503 [main] [INFO ] o.f.core.internal.command.DbMigrate:37 Current version of schema `test`: 1.0.1
+2024-04-30 14:35:09.506 [main] [INFO ] o.f.core.internal.command.DbMigrate:37 Schema `test` is up to date. No migration necessary.
+2024-04-30 14:35:10.002 [main] [INFO ] o.s.b.w.e.tomcat.TomcatWebServer:241 Tomcat started on port 8080 (http) with context path ''
+2024-04-30 14:35:10.008 [main] [INFO ] c.e.p.ProjectTemplateApplication:56 Started ProjectTemplateApplication in 2.337 seconds (process running for 3.062)
+2024-04-30 14:35:54.602 [http-nio-8080-exec-1] [INFO ] o.a.c.c.C.[Tomcat].[localhost].[/]:173 Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 14:35:54.603 [http-nio-8080-exec-1] [INFO ] o.s.web.servlet.DispatcherServlet:532 Initializing Servlet 'dispatcherServlet'
+2024-04-30 14:35:54.604 [http-nio-8080-exec-1] [INFO ] o.s.web.servlet.DispatcherServlet:554 Completed initialization in 1 ms
+2024-04-30 14:38:54.335 [SpringApplicationShutdownHook] [INFO ] com.zaxxer.hikari.HikariDataSource:350 HikariCP - Shutdown initiated...
+2024-04-30 14:38:54.342 [SpringApplicationShutdownHook] [INFO ] com.zaxxer.hikari.HikariDataSource:352 HikariCP - Shutdown completed.
